@@ -15,15 +15,13 @@ LuchCheckController.$inject = ['$scope', '$filter'];
       }
       else{
         var array = $scope.listOfFood.split(',');
-        for(var i=0; i< array.length;i++){
-          if(array[i].trim() === ""){
-            array.splice(i,1);
+        var pom_array = [];
+        for(var i = 0;i < array.length;i++){
+          if(array[i].trim() !== ""){
+            pom_array.push(array[i]);
           }
         }
-        if(array[array.length-1].trim() === ""){
-            array.splice(array.length-1,1);
-        }
-        if(array.length > 3){
+        if(pom_array.length > 3){
           $scope.message="Too much!";
         }
         else{
